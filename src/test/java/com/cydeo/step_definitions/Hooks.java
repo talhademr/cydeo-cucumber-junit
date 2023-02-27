@@ -5,7 +5,6 @@ In the class we will be able to pass pre- & post- conditions to
  each scenario and each step
  */
 
-import com.cydeo.utilities.Driver;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -36,11 +35,11 @@ public class Hooks {
 
         if (scenario.isFailed()) {
 
-            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            byte[] screenshot = ((TakesScreenshot) cydeo.utilities.Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
         }
 
-        Driver.closeDriver();
+        cydeo.utilities.Driver.closeDriver();
 
     }
 
